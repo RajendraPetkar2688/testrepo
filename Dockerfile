@@ -1,12 +1,5 @@
-FROM openjdk:11-jdk-slim AS build
+FROM openjdk:13-jdk-alpine
 WORKDIR /app
-COPY . .
-RUN apt-get update -y;
-RUN apt-get install maven -y;
-RUN mvn clean install
-RUN mv target/*.jar /app/app.jar
-FROM openjdk:8-jdk-alpine
-WORKDIR /app
-COPY --from=build /app/app.jar /app/app.jar
-EXPOSE 9090
+COPY target/*.jar /app/app.jar
+EXPOSE 8080
 CMD ["java", "-jar", "app.jar"]
