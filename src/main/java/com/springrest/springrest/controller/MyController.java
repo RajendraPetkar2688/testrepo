@@ -25,7 +25,7 @@ public class MyController {
 	@GetMapping("/home")
 	public String home()
 	{
-		return "Welcome to courses Adwait Petkar IAS";
+		return "Welcome to courses Adwait Petkar IAS-IPS-Collector";
 	}
 	
 	//Get the courses
